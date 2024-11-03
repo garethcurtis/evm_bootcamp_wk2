@@ -18,6 +18,8 @@ async function main() {
     if (!/^0x[a-fA-F0-9]{40}$/.test(contractAddress))
       throw new Error("Invalid contract address");
     const voterAddress = parameters[1];
+    if (!/^0x[a-fA-F0-9]{40}$/.test(voterAddress))
+      throw new Error("Invalid voter address");
 
     const publicClient = createPublicClient({
         chain: sepolia,
