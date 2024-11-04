@@ -26,17 +26,17 @@ async function main() {
         address: contractAddress as Address,
         abi,
         functionName: "winningProposal"
-    })) as any[];
+    }))
 
     console.log("Wining Proposal: ", winningProposal);
 
-    const winnerName = (await publicClient.readContract({
+    const winnerName = await publicClient.readContract({
         address: contractAddress as Address,
         abi,
         functionName: "winnerName"
-    })) as any[];
+    })
 
-    console.log("Winner name: ", winnerName);
+    console.log("Winning proposal name:", hexToString(winnerName as `0x${string}`));
 }
 
 main().catch((error) => {
